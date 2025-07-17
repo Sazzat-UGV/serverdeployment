@@ -46,17 +46,17 @@ mysql --version
 
 ### 7️⃣ MySQL Configuration
 ```bash
-# -- ✅ Check whether MySQL is running or stopped
+# 📝 Check whether MySQL is running or stopped
 sudo systemctl status mysql   
 
-# -- ✅ Start the MySQL service if it’s not already running
+# 📝 Start the MySQL service if it’s not already running
 sudo systemctl start mysql    
 
-# -- ✅ Ensure MySQL will automatically start after server reboot
+# 📝 Ensure MySQL will automatically start after server reboot
 sudo systemctl enable mysql   
 
 ```
-📌📌📌Inside MySQL:
+##📌📌📌Inside MySQL:
 ```sql
 CREATE USER 'your_username'@'localhost' IDENTIFIED BY 'your_password';
 CREATE DATABASE your_database_name CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
@@ -68,14 +68,14 @@ EXIT;
 
 ### 8️⃣ Install nginx
 ```bash
-# 📦 Install Nginx
+# 📝 Install Nginx
 sudo apt install nginx -y
 
-# 🚀 Enable Nginx to start now and on boot
+# 📝 Enable Nginx to start now and on boot
 sudo systemctl enable nginx    # Enable Nginx to start automatically on system boot
 sudo systemctl start nginx     # Start Nginx service immediately
 
-# 🔍 Check Nginx service status
+# 📝 Check Nginx service status
 sudo systemctl status nginx    # Verify if Nginx is running
 ```
 
