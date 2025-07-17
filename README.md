@@ -1,5 +1,5 @@
 
-# Full Deployment Documentation: Laravel 10 + React (Vite) + Nginx + SSL + MySQL + PHP 8.2
+# Full Deployment Documentation: Laravel + React (Vite) + Nginx + SSL + MySQL + PHP
 
 ## ✅ Server Setup Steps (Ubuntu)
 
@@ -46,10 +46,15 @@ mysql --version
 
 ### 7️⃣ MySQL Configuration
 ```bash
-sudo systemctl status mysql
-sudo systemctl start mysql
-sudo systemctl enable mysql
-sudo mysql -u root -p
+# -- ✅ Check whether MySQL is running or stopped
+sudo systemctl status mysql   
+
+# -- ✅ Start the MySQL service if it’s not already running
+sudo systemctl start mysql    
+
+# -- ✅ Ensure MySQL will automatically start after server reboot
+sudo systemctl enable mysql   
+
 ```
 Inside MySQL:
 ```sql
