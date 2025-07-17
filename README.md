@@ -68,10 +68,15 @@ EXIT;
 
 ### 8️⃣ Install nginx
 ```bash
+# 📦 Install Nginx
 sudo apt install nginx -y
-sudo systemctl enable nginx
-sudo systemctl start nginx
-sudo systemctl status nginx
+
+# 🚀 Enable Nginx to start now and on boot
+sudo systemctl enable nginx    # Enable Nginx to start automatically on system boot
+sudo systemctl start nginx     # Start Nginx service immediately
+
+# 🔍 Check Nginx service status
+sudo systemctl status nginx    # Verify if Nginx is running
 ```
 
 ## ✅ Project Clone and Permissions
