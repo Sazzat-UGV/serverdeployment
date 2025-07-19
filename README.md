@@ -110,13 +110,20 @@ mysql -u your_username -p
 # 4. Describe the structure of a table:
 # mysql> DESCRIBE table_name;
 
-# 5. Delete (drop) a table permanently:
+# 5. Explain table structure (alternative to DESCRIBE):
+# mysql> EXPLAIN table_name;
+
+# 6. Delete (drop) a table permanently:
 # mysql> DROP TABLE table_name;
 
-# 6. Delete (drop) a database permanently:
+# 7. Delete (drop) a database permanently:
 # mysql> DROP DATABASE your_database_name;
 
+# 8. Exit the MySQL client:
+# mysql> EXIT;
+
 # ⚠️ WARNING: DROP commands permanently delete data and cannot be undone!
+
 ```
 
 ## ✅ Clone & Setup Backend Project
