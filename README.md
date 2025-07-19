@@ -149,6 +149,9 @@ php artisan migrate
 
 # 📝 Run seeders to insert default data into the database (optional)
 php artisan db:seed
+
+# 📝 Generate JWT secret key (optional, if your app uses JWT authentication)
+php artisan jwt:secret
 ```
 
 
