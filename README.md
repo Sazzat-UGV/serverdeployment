@@ -220,24 +220,33 @@ sudo systemctl start nginx
 ### Laravel (API only)
 ```nginx
 server {
-    listen 80;
-    server_name api.yourdomain.com;
-    root /var/www/laravel_project_name/public;
-    index index.php index.html;
+    listen 80;  # Listen on HTTP port 80
+    server_name yourdomain;  # Replace with your actual domain
+
+    root /var/www/backend_project_repo/public;  # Path to Laravel public directory
+    index index.php index.html;  # Default index files
+
+
+   client_max_body_size 1024M;  # Allow upload files up to 1024MB
+
+    # Main location block to handle requests
     location / {
-        try_files $uri $uri/ /index.php?$query_string;
+        try_files $uri $uri/ /index.php?$query_string;  # Route requests to index.php if file not found
     }
+
+    # PHP processing
     location ~ \.php$ {
-        include snippets/fastcgi-php.conf;
-        fastcgi_pass unix:/run/php/php8.2-fpm.sock;
-        fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
-        include fastcgi_params;
+        include snippets/fastcgi-php.conf;  # FastCGI configuration for PHP
+        fastcgi_pass unix:/run/php/php8.2-fpm.sock;  # PHP-FPM socket, adjust PHP version if needed
+        fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;  # Set script filename
+        include fastcgi_params;  # Additional fastcgi parameters
     }
+
+    # Deny access to hidden files except .well-known (for Let's Encrypt etc)
     location ~ /\.(?!well-known).* {
         deny all;
     }
 }
-```
 
 ### Laravel + React Together
 ```nginx
