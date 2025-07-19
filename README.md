@@ -81,6 +81,39 @@ sudo systemctl start nginx
 sudo systemctl status nginx 
 ```
 
+## ✅ Clone & Setup Backend Project
+```bash
+cd /var/www
+
+# 📝 Clone your repository
+sudo git clone your-repo-url
+
+# 📝 Go into the project directory
+cd your-project-folder
+
+# 📝 Install dependencies
+sudo composer install
+
+# 📝 Copy .env file and generate app key
+cp .env.example .env
+php artisan key:generate
+
+# 📝 Setup permissions
+sudo chown -R www-data:www-data /var/www/your-project-folder
+sudo chmod -R 775 /var/www/your-project-folder/storage
+sudo chmod -R 775 /var/www/your-project-folder/bootstrap/cache
+
+# ⚠️ Setup your .env file properly with correct DB credentials before running migrations
+php artisan migrate
+
+# 📝 Run seeders to insert default data into the database
+php artisan db:seed
+```
+
+
+
+
+
 ## ✅ Project Clone and Permissions
 ```bash
 cd /var/www
