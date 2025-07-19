@@ -110,9 +110,6 @@ SHOW TABLES;
 # 📝 Describe the structure of a table
 DESCRIBE table_name;
 
-# 📝 Explain table structure (alternative to DESCRIBE):
-EXPLAIN table_name;
-
 # 📝 Delete (drop) a table permanently
 DROP TABLE table_name;
 
