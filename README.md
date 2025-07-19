@@ -73,6 +73,9 @@ sudo systemctl status nginx
 
 ## ✅ Setting Up MySQL Database and User
 ```bash
+# 📝  Use sudo to login to MySQL as root without password
+sudo mysql
+
 # 📝 Create a new MySQL user with password
 CREATE USER 'your_username'@'localhost' IDENTIFIED BY 'your_password';
 
