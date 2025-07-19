@@ -96,35 +96,33 @@ mysql -u your_username -p
 
 ```
 ```bash
-# 📌 MySQL commands for database and table management:
+# MySQL commands for database and table management
 
-# 📝 Show all databases:
+# 📝 Show all databases
 SHOW DATABASES;
 
-# 📝 Select a database to work with:
+# 📝 Select a database to work with
 USE your_database_name;
 
-# 📝 Show all tables in the selected database:
+# 📝 Show all tables in the selected database
 SHOW TABLES;
 
-# 📝 Describe the structure of a table:
+# 📝 Describe the structure of a table
 DESCRIBE table_name;
 
 # 📝 Explain table structure (alternative to DESCRIBE):
 EXPLAIN table_name;
 
-# 📝 Delete (drop) a table permanently:
+# 📝 Delete (drop) a table permanently
 DROP TABLE table_name;
 
-# 📝 Delete (drop) a database permanently:
+# 📝 Delete (drop) a database permanently
 DROP DATABASE your_database_name;
 
-# 📝 Exit the MySQL client:
+# 📝 Exit the MySQL client
 EXIT;
 
 # ⚠️ WARNING: DROP commands permanently delete data and cannot be undone!
-
-
 ```
 
 ## ✅ Clone & Setup Backend Project
