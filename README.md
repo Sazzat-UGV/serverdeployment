@@ -54,16 +54,6 @@ sudo systemctl start mysql
 
 # 📝 Ensure MySQL will automatically start after server reboot
 sudo systemctl enable mysql   
-
-```
-##📌📌📌Inside MySQL:
-```sql
-CREATE USER 'your_username'@'localhost' IDENTIFIED BY 'your_password';
-CREATE DATABASE your_database_name CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-GRANT ALL PRIVILEGES ON your_database_name.* TO 'your_username'@'localhost';
-FLUSH PRIVILEGES;
-SHOW DATABASES;
-EXIT;
 ```
 
 ### 8️⃣ Install nginx
@@ -79,6 +69,25 @@ sudo systemctl start nginx
 
 # 📝 Check Nginx service status
 sudo systemctl status nginx 
+```
+
+## ✅ Setting Up MySQL Database and User
+```bash
+# 📝 Create a new MySQL user with password
+CREATE USER 'your_username'@'localhost' IDENTIFIED BY 'your_password';
+
+# 📝 Create a new database with UTF8MB4 charset for full Unicode support
+CREATE DATABASE your_database_name CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+# 📝 Grant all privileges on the new database to the new user
+GRANT ALL PRIVILEGES ON your_database_name.* TO 'your_username'@'localhost';
+
+# 📝 Reload the privilege tables to apply changes
+FLUSH PRIVILEGES;
+
+# 📝 Login as the new user to verify credentials and access
+mysql -u your_username -p
+
 ```
 
 ## ✅ Clone & Setup Backend Project
