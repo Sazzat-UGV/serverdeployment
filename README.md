@@ -154,44 +154,41 @@ php artisan db:seed
 php artisan jwt:secret
 ```
 
-
-
-
-
-## ✅ Project Clone and Permissions
+## ✅ Clone & Setup Frontend Project
 ```bash
 cd /var/www
 
-# 📝 Setup backend project
+# 📝 Clone your repository
 sudo git clone your-repo-url
 
-
-
-
-sudo git clone your-backend-repo-url nobl_backend
-sudo git clone your-frontend-repo-url nobl_frontend
-
-sudo chown -R www-data:www-data /var/www/nobl_backend
-sudo chmod -R 775 /var/www/nobl_backend/storage
-sudo chmod -R 775 /var/www/nobl_backend/bootstrap/cache
+# 📝 Go into the project directory
+cd your-project-folder
 ```
 
-## ✅ React (Vite) Build Configuration
-vite.config.js:
+vite.config.js
 ```javascript
+# 📝 Vite Build Configuration
+
 export default defineConfig({
   root: ".",
   build: {
-    outDir: "../nobl_backend/public",
+    outDir: "../your_backend_project/public",
     emptyOutDir: false,
   },
 });
+
 ```
+
 ```bash
-cd /var/www/nobl_frontend
-npm install
-npm run build
+# 📌 Vite commands
+
+# 📝 Install dependencies
+sudo npm install
+
+# 📝 Build production assets
+sudo npm run build
 ```
+
 
 ## ✅ PHP Configuration for File Upload
 ```bash
