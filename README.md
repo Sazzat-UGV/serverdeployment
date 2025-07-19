@@ -247,6 +247,7 @@ server {
         deny all;
     }
 }
+```
 
 ### Laravel + React Together
 ```nginx
