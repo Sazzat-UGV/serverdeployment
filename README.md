@@ -215,8 +215,19 @@ sudo certbot certonly --standalone -d noblco.us -d www.noblco.us
 sudo systemctl start nginx
 ```
 
-## ✅ nginx Configuration
+## ✅ Steps to Configure Nginx
 
+### 1️⃣ Go to the Available Sites Directory
+```bash
+cd /etc/nginx/sites-available/
+```
+
+### 2️⃣ Create a New Config File
+```bash
+sudo nano /etc/nginx/sites-available/your_conf_file_name.conf
+```
+
+### 3️⃣ Paste Your Nginx Configuration
 ### Laravel (API only)
 
 ```nginx
@@ -306,9 +317,24 @@ server {
     location ~ /\.ht {
         deny all;
     }
-    
+
     error_page 404 /index.html;
 }
+```
+### 4️⃣ Enable the Site
+```bash
+# 📝 Create a symbolic link
+sudo ln -s /etc/nginx/sites-available/your_conf_file_name.conf /etc/nginx/sites-enabled/
+```
+
+### 5️⃣ Test Nginx Config
+```bash
+sudo nginx -t
+```
+
+### 6️⃣ Reload Nginx
+```bash
+sudo systemctl reload nginx
 ```
 
 ## ✅ Laravel Queue Worker (Background with tmux)
