@@ -218,15 +218,17 @@ sudo systemctl start nginx
 ## ✅ nginx Configuration
 
 ### Laravel (API only)
+
 ```nginx
 server {
     listen 80;
-    server_name yourdomain;  # Replace with your actual domain/IP
+    server_name your_domain;   # Replace with your actual domain (e.g., yourdomain.com www.yourdomain.com)
 
     root /var/www/backend_project_repo/public;  # Path to Laravel public directory
     index index.php index.html;
 
-    client_max_body_size 1024M;  # Allow upload files up to 1024MB
+    # 🔧 Allow large file uploads (adjust as needed)
+    client_max_body_size 1024M;
 
     location / {
         try_files $uri $uri/ /index.php?$query_string;
@@ -246,10 +248,11 @@ server {
 ```
 
 ### Laravel + React Together
+
 ```nginx
 server {
     listen 80;
-    server_name noblco.us www.noblco.us;
+    server_name your_domain;   # Replace with your actual domain (e.g., yourdomain.com www.yourdomain.com)
     location /.well-known/acme-challenge/ {
         root /var/www/certbot;
     }
@@ -260,45 +263,52 @@ server {
 
 server {
     listen 443 ssl http2;
-    server_name noblco.us www.noblco.us;
+    server_name your_domain;   # Replace with your actual domain (e.g., yourdomain.com www.yourdomain.com)
+   
+    # SSL Certificates 
     ssl_certificate /etc/letsencrypt/live/noblco.us/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/noblco.us/privkey.pem;
+
+    # Allow large file uploads (adjust as needed)
     client_max_body_size 1024M;
-    root /var/www/nobl_backend/public;
+
+    # Project root (Laravel public directory)
+    root /var/www/backend_project_repo/public;
     index index.html index.php;
+
     location / {
         try_files $uri $uri/ /index.html;
     }
+
     location /api/ {
         try_files $uri $uri/ /index.php?$query_string;
         location ~ \.php$ {
             include snippets/fastcgi-php.conf;
-            fastcgi_pass unix:/run/php/php8.2-fpm.sock;
+            fastcgi_pass unix:/run/php/php8.2-fpm.sock;   # Adjust PHP version if needed
             fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
             include fastcgi_params;
         }
     }
+
     location ~ \.php$ {
         include snippets/fastcgi-php.conf;
-        fastcgi_pass unix:/run/php/php8.2-fpm.sock;
+        fastcgi_pass unix:/run/php/php8.2-fpm.sock;  # Adjust PHP version if needed
         fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
         include fastcgi_params;
     }
+
     location ~* \.(?:ico|css|js|gif|jpe?g|png|woff2?|eot|ttf|svg)$ {
         expires max;
         access_log off;
         add_header Cache-Control "public";
     }
+
     location ~ /\.ht {
         deny all;
     }
+    
     error_page 404 /index.html;
 }
-```
-```bash
-sudo ln -s /etc/nginx/sites-available/noblco /etc/nginx/sites-enabled/
-sudo nginx -t
-sudo systemctl reload nginx
 ```
 
 ## ✅ Laravel Queue Worker (Background with tmux)
