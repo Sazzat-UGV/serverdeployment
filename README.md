@@ -88,6 +88,9 @@ GRANT ALL PRIVILEGES ON your_database_name.* TO 'your_username'@'localhost';
 # 📝 Reload the privilege tables to apply changes
 FLUSH PRIVILEGES;
 
+# 📝 Exit MySQL prompt
+EXIT;
+
 # 📝 Login as the new user to verify credentials and access
 mysql -u your_username -p
 
