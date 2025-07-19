@@ -84,6 +84,13 @@ sudo systemctl status nginx
 ## ✅ Project Clone and Permissions
 ```bash
 cd /var/www
+
+# 📝 Setup backend project
+sudo git clone your-repo-url
+
+
+
+
 sudo git clone your-backend-repo-url nobl_backend
 sudo git clone your-frontend-repo-url nobl_frontend
 
