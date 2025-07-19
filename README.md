@@ -185,7 +185,7 @@ export default defineConfig({
 # 📝 Install dependencies
 sudo npm install
 
-# 📝 Build production assets
+# 📝 Build production assets (Setup Backend Domain / IP for API Calls (Required Before Build))
 sudo npm run build
 ```
 
