@@ -1,7 +1,7 @@
 
 # Full Deployment Documentation: Laravel + React (Vite) + Nginx + SSL + MySQL + PHP
 
-## ✅ Server Setup Steps (Ubuntu)
+## ✅ Server Setup (Ubuntu)
 
 ### 1️⃣ Connect to Your Server
 ```bash
