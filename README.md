@@ -147,7 +147,7 @@ sudo chmod -R 775 /var/www/your-project-folder/bootstrap/cache
 # ⚠️ Setup your .env file properly with correct DB credentials before running migrations
 php artisan migrate
 
-# 📝 Run seeders to insert default data into the database
+# 📝 Run seeders to insert default data into the database (optional)
 php artisan db:seed
 ```
 
