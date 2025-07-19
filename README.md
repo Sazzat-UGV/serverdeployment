@@ -96,7 +96,7 @@ mysql -u your_username -p
 
 ```
 ```bash
-# MySQL commands for database and table management
+# 📌 MySQL commands for database and table management
 
 # 📝 Show all databases
 SHOW DATABASES;
